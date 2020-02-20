@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper的namespace 对应相应接口文件的全限定符-->
+<mapper namespace="com.example.demo.dao.UserMapper">
+
+    <insert id="saveUser" parameterType="User">
+        insert into user(name,age) values(#{name},#{age})
+    </insert>
+
+    <select id="findUserById" parameterType="Long" resultType="User">
+        select * from user where id=#{id}
+    </select>
+
+    <select id="findAllUser" resultType="User">
+        select * from user
+    </select>
+
+    <update id="updateUser" parameterType="User">
+        update user
+        <set>
+            <if test="name!=null">name=#{name},</if>
+            <if test="age!=null">age=#{age}</if>
+            where id=#{id}
+        </set>
+    </update>
+
+    <delete id="deleteUser" parameterType="Long">
+        delete from user where id=#{id}
+    </delete>
+</mapper>
