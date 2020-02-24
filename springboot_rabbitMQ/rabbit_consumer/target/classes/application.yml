@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: rabbit_consumer
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+    listener:
+      simple:
+#      设置手工签收模式
+        acknowledge-mode: manual
+

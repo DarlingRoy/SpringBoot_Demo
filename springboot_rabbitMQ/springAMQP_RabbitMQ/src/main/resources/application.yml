@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: springAMQP_RabbitMQ
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    publisher-returns: true
+    template:
+      mandatory: true
+    publisher-confirm-type: correlated
+
